@@ -14,4 +14,7 @@ before_script:
 
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - CI=true
+  matrix:
+  - TEST_DOC=false
+  - TEST_DOC=true
