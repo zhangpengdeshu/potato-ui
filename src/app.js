@@ -1,8 +1,15 @@
 import Vue from 'vue'
 import Button from './button'
+import Input from './input'
 Vue.component('g-button', Button)
+Vue.component('g-input', Input)
 new Vue({
-    el: '#app'
+    el: '#app',
+    methods: {
+        handlerChange (e) {
+            console.log(e.target.value)
+        }
+    }  
 })
 
 // // 单元测试
