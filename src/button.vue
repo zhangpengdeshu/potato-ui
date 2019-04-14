@@ -22,7 +22,6 @@
                 default: 'left',
                 validate (value) {
                     return value === 'left' || value === 'right'
-                    // return value !== 'left' && value !== 'right' ? false : true
                 }
             }
         },

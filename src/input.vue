@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper" :class="{'error': error}">
-        <input type="text" :value='value' :disabled="disabled" :readonly="readOnly" @change="$emit('change', $event)"/>
+        <input type="text" :value='value' :disabled="disabled" :readonly="readOnly" @change="$emit('change', $event)" @input="$emit('input', $event.target.value)"/>
         <template v-if="error"> 
             <g-icon name="warn"></g-icon>
             <span>{{ error }}</span>
@@ -17,7 +17,7 @@ export default {
         },
         disabled: {
             type: Boolean,
-            defaule: false
+            default: false
         },
         readOnly: {
             type: Boolean,
@@ -29,9 +29,6 @@ export default {
     },
     components: {
         'g-icon': Icon
-    },
-    data () {
-
     }
         
 }

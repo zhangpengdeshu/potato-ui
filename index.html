@@ -25,18 +25,28 @@
         body {
             font-size: var(--font-size);
         }
+
     </style>
 </head>
 <body>
 <div id="app">
     <g-input value="张三" @change="handlerChange"></g-input>
     <g-input value="张三" disabled></g-input>
-    <g-input value="张三" readonly></g-input>
+    <g-input value="张三" readonly v-model="message"></g-input>
     <g-input value="张三" error="姓名不能少于两个字"></g-input>
     <g-button icon="setting">按钮</g-button>
     <g-button icon="setting" icon-position="right">按钮</g-button>
     <g-button icon="setting" icon-position="right">按钮</g-button>
     <g-button icon-position="right" :loading="true">按钮</g-button>
+    <g-row>
+        <g-col></g-col>
+        <g-col></g-col>
+    </g-row>
+
+    <g-row gutter="20">
+        <g-col span="2"></g-col>
+        <g-col span="22"></g-col>
+    </g-row>
 </div>
 <script src="src/app.js"></script>
 <script src="//at.alicdn.com/t/font_792978_rpa6hdqh0z.js"></script>
