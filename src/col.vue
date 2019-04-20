@@ -40,10 +40,6 @@ export default {
 </script>
 <style lang="scss" scoped>
     .col {
-        height: 44px;
-        background: #ccc;
-        border: 1px solid #999;
-        width: 50%;
         $class-prefix: col-;
         @for $n from 1 through 24 {
             &.#{$class-prefix}#{$n} {

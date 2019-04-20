@@ -1,11 +1,20 @@
 <template>
-    <div class="row" :style="style">
+    <div class="row" :style="style" :class="rowClass">
         <slot></slot>
     </div>
 </template>
 <style lang="scss" scoped>
     .row {
         display: flex;
+        &.align-left {
+            justify-content: flex-start;
+        }
+        &.align-right {
+            justify-content: flex-end;
+        }
+        &.align-center {
+            justify-content: center;
+        }
     }
 </style>
 <script>
@@ -18,6 +27,12 @@ export default {
         tag: {
             type: String,
             default: 'div'
+        },
+        align: {
+            type: String,
+            validator (value) {
+                return ['left', 'right', 'center'].includes(value)
+            }
         }
     },
     mounted () {
@@ -33,6 +48,10 @@ export default {
                 ret.marginRight = ret.marginLeft
             }
             return ret
+        },
+        rowClass () {
+            let { align } = this
+            return [align && `align-${align}`]
         }
     }
 }
