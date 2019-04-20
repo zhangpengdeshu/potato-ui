@@ -26,27 +26,32 @@
             font-size: var(--font-size);
         }
 
+        .demoBox {
+             height: 50px;
+             background-color: #ccc;
+             border: 1px solid red;   
+        }
+        .gulu-header {
+            width: 100%;
+            height: 60px;
+            background-color: #555;
+        }
+        .gulu-sider {
+            width: 200px;
+            background-color: #999;
+        }
+        .gulu-footer {
+            height: 60px;
+            background-color: #555;
+        }
+        .gulu-container {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <g-input value="张三" @change="handlerChange"></g-input>
-    <g-input value="张三" disabled></g-input>
-    <g-input value="张三" readonly v-model="message"></g-input>
-    <g-input value="张三" error="姓名不能少于两个字"></g-input>
-    <g-button icon="setting">按钮</g-button>
-    <g-button icon="setting" icon-position="right">按钮</g-button>
-    <g-button icon="setting" icon-position="right">按钮</g-button>
-    <g-button icon-position="right" :loading="true">按钮</g-button>
-    <g-row>
-        <g-col></g-col>
-        <g-col></g-col>
-    </g-row>
-
-    <g-row gutter="20">
-        <g-col span="2"></g-col>
-        <g-col span="22"></g-col>
-    </g-row>
+  <g-button @click="handleClick">点击弹出Toast</g-button>  
 </div>
 <script src="src/app.js"></script>
 <script src="//at.alicdn.com/t/font_792978_rpa6hdqh0z.js"></script>

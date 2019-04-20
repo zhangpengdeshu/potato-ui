@@ -8,6 +8,8 @@ import Header from './header'
 import Sider from './sider'
 import Container from './container'
 import Footer from './footer'
+import Toast from './install/toast.js'
+
 Vue.component('g-button', Button)
 Vue.component('g-input', Input)
 Vue.component('g-row', Row)
@@ -17,15 +19,19 @@ Vue.component('g-sider', Sider)
 Vue.component('g-header', Header)
 Vue.component('g-container', Container)
 Vue.component('g-footer', Footer)
+Vue.$toast = Vue.prototype.$toast = Toast
+Vue.use(Toast)
 new Vue({
     el: '#app',
     data: {
-        disabled: true,
-        message: ''
+        disabled: true
     },
     methods: {
         handlerChange (e) {
             console.log(e.target.value)
+        },
+        handleClick () {
+            this.$toast('Hello World')
         }
-    }  
+    } 
 })
