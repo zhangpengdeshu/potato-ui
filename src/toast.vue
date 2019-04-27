@@ -80,17 +80,17 @@ export default {
         border-radius: 5px;
         background: rgba(0,0,0,0.7);
         transition: opacity .3s linear;
-        &.middle {
+        &.is-placemiddle {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%)
         }
-        &.top {
+        &.is-placetop {
             top: 50px;
             left: 50%;
             transform: translate(-50%, 0)
         }
-        &.bottom {
+        &.is-placebottom {
             bottom: 50px;
             left: 50%;
             transform: translate(-50%, 0);

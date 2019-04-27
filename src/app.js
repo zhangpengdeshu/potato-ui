@@ -9,6 +9,11 @@ import Sider from './sider'
 import Container from './container'
 import Footer from './footer'
 import Toast from './install/toast.js'
+import Tabs from './tabs'
+import TabNav from './tab-nav'
+import TabPane from './tab-pane'
+import TabBar from './tab-bar'
+import Popover from './popover'
 
 Vue.component('g-button', Button)
 Vue.component('g-input', Input)
@@ -19,12 +24,17 @@ Vue.component('g-sider', Sider)
 Vue.component('g-header', Header)
 Vue.component('g-container', Container)
 Vue.component('g-footer', Footer)
+Vue.component('g-tabs', Tabs)
+Vue.component('g-tab-nav', TabNav)
+Vue.component('g-tab-pane', TabPane)
+Vue.component('g-tab-bar', TabBar)
+Vue.component('g-popover', Popover)
 Vue.$toast = Vue.prototype.$toast = Toast
 Vue.use(Toast)
 new Vue({
     el: '#app',
     data: {
-        disabled: true
+        activeName: "first"
     },
     methods: {
         handlerChange (e) {
