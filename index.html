@@ -51,7 +51,18 @@
 </head>
 <body>
 <div id="app">
-  <g-button @click="handleClick">点击弹出Toast</g-button>  
+  <!-- <g-tabs v-model="activeName">
+      <g-tab-pane label="用户管理" name="first">用户管理</g-tab-pane>
+      <g-tab-pane label="配置管理" name="second">配置管理</g-tab-pane>
+      <g-tab-pane label="角色管理" name="third">角色管理</g-tab-pane>
+      <g-tab-pane label="定时任务" name="fourth">定时任务</g-tab-pane>
+  </g-tabs>   -->
+  <g-popover 
+    content="hello world" 
+    title="hello popover"
+    trigger="click">
+    <button slot="reference">点我试一试</button>
+  </g-popover>
 </div>
 <script src="src/app.js"></script>
 <script src="//at.alicdn.com/t/font_792978_rpa6hdqh0z.js"></script>
