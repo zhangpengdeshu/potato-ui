@@ -14,6 +14,7 @@ import TabNav from './tab-nav'
 import TabPane from './tab-pane'
 import TabBar from './tab-bar'
 import Popover from './popover'
+import CountUp from './count-up'
 
 Vue.component('g-button', Button)
 Vue.component('g-input', Input)
@@ -29,12 +30,22 @@ Vue.component('g-tab-nav', TabNav)
 Vue.component('g-tab-pane', TabPane)
 Vue.component('g-tab-bar', TabBar)
 Vue.component('g-popover', Popover)
+Vue.component('g-countup', CountUp)
 Vue.$toast = Vue.prototype.$toast = Toast
 Vue.use(Toast)
 new Vue({
     el: '#app',
     data: {
-        activeName: "first"
+        activeName: "first",
+        countUpOpts: {
+            useEasing: true,
+            useGrouping: true,
+            separator: ",",
+            decimal: ".",
+            prefix: "￥",
+            suffix: "￥",
+            duration: "3"
+          }
     },
     methods: {
         handlerChange (e) {
