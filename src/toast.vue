@@ -1,104 +1,78 @@
 <template>
-    <div class="gulu-toast" v-show="visible" :class="customerClass" :style="styleToast">
-        <g-icon :name="iconClass" v-if="iconClass"></g-icon>
-        <span class="gulu-toast-text" :style="styleToastText">{{message}}</span>
-    </div>    
+    <div class="toast">
+        <div v-html="$slots.default[0]"></div>
+        <div class="line"></div>
+        <span class="close" v-if="closeButton" @click="onClickClose">{{ closeButton.text }}</span>
+    </div>
 </template>
 <script>
-import Icon from './icon.vue'
-export default {
-    name: 'GuluToast',
-    components: {
-        'g-icon': Icon
-    },
-    props: {
-        message: String,
-        iconClass: {
-            type: String,
-            default: ''
-        },
-        className: {
-            type: String,
-            default: ''
-        },
-        position: {
-            type: String,
-            default: 'middle'
-        }
-    },
-    data () {
-        return {
-            visible: false
-        }
-    },
-    computed: {
-        customerClass () {
-            let ret = []
-            switch (this.position) {
-                case 'top':
-                    ret.push('is-placetop')
-                    break;
-                case 'bottom':
-                    ret.push('is-placebottom')
-                    break;
-                default:
-                    ret.push('is-placemiddle')        
+    export default {
+        name: 'GrapToast',
+        props: {
+            autoClose: {
+                type: Boolean,
+                default: true
+            },
+            autoDelay: {
+                type: Number,
+                default: 3
+            },
+            closeButton: {
+                type: Object,
+                default () {
+                    return {
+                        text: '关闭',
+                        callback: undefined
+                    }
+                }
             }
-            ret.push(this.className)
-            return ret.join(' ')
         },
-        styleToast () {
-            const ret = {}
-            if (this.iconClass) {
-                ret.padding = '20px'
+        mounted () {
+            if (this.autoClose) {
+                setTimeout(() => {
+                    this.close();
+                }, this.autoDelay * 1000)
             }
-            ret.padding = '10px'
-            return ret
         },
-        styleToastText () {
-            const ret = {}
-            if (this.iconClass) {
-                ret.paddingTop = '10px'
+        methods: {
+            close () {
+                this.$el.remove();
+                this.$destroy();
+            },
+            onClickClose () {
+                this.close()
+                if (this.closeButton && typeof this.closeButton.callback === 'function') {
+                    this.closeButton.callback();
+                }
             }
-            ret.paddingTop = '0'
-            return ret;
         }
     }
-}
 </script>
-<style lang="scss" scoped>
-    .gulu-toast {
+<style scoped lang="scss">
+    $font-size: 14px;
+    $toast-height: 40px;
+    $toast-bg: rgba(0,0,0, .74);
+    $toast-radius: 4px;
+    .toast {
         position: fixed;
-        word-wrap:break-word;
-        padding:10px;
-        text-align: center;
-        z-index:9999;
-        font-size:14px;
-        max-width:80%;
-        box-sizing: border-box;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: $font-size;
+        height: $toast-height;
+        border-radius: $toast-radius;
+        background-color: $toast-bg;
+        display: flex;
+        align-items: center;
         color: #fff;
-        border-radius: 5px;
-        background: rgba(0,0,0,0.7);
-        transition: opacity .3s linear;
-        &.is-placemiddle {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-        &.is-placetop {
-            top: 50px;
-            left: 50%;
-            transform: translate(-50%, 0)
-        }
-        &.is-placebottom {
-            bottom: 50px;
-            left: 50%;
-            transform: translate(-50%, 0);
-        }
-        .gulu-toast-text {
-            font-size: 14px;
-            display: block;
-            text-align: center;
-        }
+        padding: 0 16px 0 16px;
+    }
+    .close {
+        padding-left: 16px;
+    }
+    .line {
+        height: 100%;
+        border-left: 1px solid #fff;
+        margin-left: 16px;
     }
 </style>
