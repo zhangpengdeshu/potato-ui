@@ -1,6 +1,3 @@
-import Vue from 'vue'
-
-
 export const on = (function () {
     if (document.addEventListener) {
         return function (element, event, handler) {
