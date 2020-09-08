@@ -7,7 +7,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const components = require('../components.json');
 
 function buildCss(cb) {
-    gulp.src('../src/style/index.scss')
+    gulp.src('../src/styles/index.scss')
         .pipe(sass())
         .pipe(autoprefixer())
         .pipe(cleanCss())
@@ -21,7 +21,7 @@ function buildSeperateCss(cb) {
       gulp.src(`../src/styles/${compName}.scss`)
         .pipe(sass())
         .pipe(autoprefixer())
-        .pipe(cleanCSS())
+        .pipe(cleanCss())
         .pipe(rename(`${compName}.css`))
         .pipe(gulp.dest('../lib/styles'));
     })

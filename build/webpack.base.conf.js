@@ -21,7 +21,9 @@ module.exports = {
                             {
                                 loader: 'css-loader',
                                 options: {
-                                    sourceMap: true,
+                                    compilerOptions: {
+                                        preserveWhitespace: false
+                                    }
                                 }
                             }
                         ],
@@ -29,30 +31,20 @@ module.exports = {
                             'vue-style-loader',
                             {
                                 loader: 'css-loader',
-                                options: {
-                                    sourceMap: true,
-                                }
                             },
                             {
                                 loader: 'sass-loader',
-                                options: {
-                                    sourceMap: true
-                                }
                             }
                         ]
                     },
                     postLoaders: {
                         html: 'babel-loader?sourceMap'
                     },
-                    sourceMap: true,
                 }
             },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                options: {
-                    sourceMap: true,
-                },
                 exclude: /node_modules/,
             },
             {
@@ -60,15 +52,9 @@ module.exports = {
                 loaders: [
                     {
                         loader: 'style-loader',
-                        options: {
-                            sourceMap: true,
-                        }
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        }
                     },
                 ]
             },
@@ -77,21 +63,12 @@ module.exports = {
                 loaders: [
                     {
                         loader: 'style-loader',
-                        options: {
-                            sourceMap: true,
-                        }
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        }
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                        }
                     }
                 ]
             },

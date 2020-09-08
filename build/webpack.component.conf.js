@@ -1,9 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const {merge} = require('webpack-merge')
 const webpackBaseConfig = require('./webpack.base.conf');
 const components = require('../components.json');
-const webpackBaseConf = require('./webpack.base.conf');
 
 process.env.NODE_ENV = 'production';
 
@@ -12,8 +11,9 @@ const basePath = path.resolve(__dirname, '../');
 const entries = {};
 
 Object.keys(components).forEach(key => {
-    entries[key] = path.join(basePath, 'src', 'packages');
+    entries[key] = path.join(basePath, 'src', components[key]);
 })
+
 
 module.exports = merge(webpackBaseConfig, {
     devtool: 'source-map',

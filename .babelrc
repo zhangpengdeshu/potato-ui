@@ -17,7 +17,7 @@
               "Android >= 6"
           ]
         },
-        "useBuiltIns": "usage",
+        "useBuiltIns": "entry",
         "debug": false,
       }
     ]
