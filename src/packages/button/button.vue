@@ -10,6 +10,8 @@
 
 <script>
 import Icon from '../icon'
+
+const prefixCls = 'po-button'
 export default {
   name: 'PoButton',
   components: {
@@ -20,7 +22,7 @@ export default {
     type: {
       type: String,
       validator(value) {
-        return ['default', 'primary', 'dashed', 'text', 'info', 'success', 'warning', 'error'].indexof(value) > -1
+        return ['default', 'primary', 'dashed', 'text', 'info', 'success', 'warning', 'error'].indexOf(value) > -1
       },
       default: 'default',
     },
@@ -42,13 +44,29 @@ export default {
     // 是否禁止选中
     disabled: Boolean,
     // 是否为loading状态
-    loading: Boolean
-
+    loading: Boolean,
+    icon: {
+      type: String,
+      default: ''
+    }
   },
   computed: {
+    classes() {
+      return [
+        `${prefixCls}`,
+        `${prefixCls}-${this.type}`,
+        {
+          [`${prefixCls}-${this.shape}`]: !!this.shape,
+          [`${prefixCls}-${this.size}`]: this.size !== 'default',
+          [`${prefixCls}-${this.loading}`]: this.loading !== null && this.loading,
+        }
+      ]
+    },
     tagName() {
-      return 'button'
-    }
+      const { type } = this;
+      return type === 'text' ? 'a' : 'button'
+    },
+
   },
   methods: {
     handleClick(event) {

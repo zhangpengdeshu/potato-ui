@@ -18,6 +18,12 @@ export default {
   <po-button type="primary">主色</po-button>
   <po-button type="success">成功</po-button>
   <po-button type="info">提示</po-button>
+  <po-button-group>
+    <po-button type="primary">主色</po-button>
+    <po-button type="success">成功</po-button>
+    <po-button type="info">提示</po-button>
+    <po-button type="info">哈哈</po-button>
+  </po-button-group>
 </template>
 
 
@@ -27,4 +33,10 @@ export default {
 <po-button type="primary">主色</po-button>
 <po-button type="success">成功</po-button>
 <po-button type="info">提示</po-button>
+<po-button-group>
+    <po-button type="primary">主色</po-button>
+    <po-button type="success">成功</po-button>
+    <po-button type="info">提示</po-button>
+    <po-button type="info">哈哈</po-button>
+  </po-button-group>
 ```

@@ -1,7 +1,9 @@
 import Button from './packages/button'
+import ButtonGroup from './packages/button-group';
 
 const components = {
     PoButton: Button,
+    PoButtonGroup: ButtonGroup,
 }
 
 const install = function (Vue, options = {}) {

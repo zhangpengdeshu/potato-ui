@@ -1,1 +1,4 @@
-@import 'button'
+@import "./common/var.scss";
+@import "./common/reset.scss";
+@import "./mixins/mixins.scss";
+@import "./components/index.scss";

@@ -8,7 +8,6 @@ module.exports = {
         { text: '主页', link: '/' },
         { text: '组件', link: '/component/guide/intro' },
         { text: '主题', link: '/theme/' },
-        // { text: 'External', link: 'https://google.com' },
       ],
       sidebar: {
         '/component/': [

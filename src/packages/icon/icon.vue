@@ -18,7 +18,7 @@
                 return [
                     `${prefixCls}`,
                     {
-                        [`${prefixCls-${this.name}}`]: this.name !== '',
+                        [`${prefixCls-this.name}`]: this.name !== '',
                     }
                 ]
             },
