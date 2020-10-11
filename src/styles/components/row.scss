@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import "../common/var.scss";
+@import "../common/reset.scss";
+@import "../mixins/mixins.scss";
+@include b(row) {
+    display: flex;
+    &:before,
+    &:after{
+        display: none;
+    }
+    &-center {
+        justify-content: center;
+    }
+    &-end {
+        justify-content: end;
+    }
+    &-around {
+        justify-content: space-around;
+    }
+}
+    
